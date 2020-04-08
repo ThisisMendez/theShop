@@ -15,12 +15,14 @@ const Continents = [
   {key:7, value: "Antarctica"}
 ]
 
-function UploadProductPage() {
+function UploadProductPage(props) {
   const [TitleValue, setTitleValue] = useState("")
   const [DescriptionValue, setDescriptionValue] = useState("")
   const [PriceValue, setPriceValue ] = useState(0)
   const [ContinentValue, setContinentValue] = useState(1)
 
+//Have to manage our image information in the parent component. Than when you click submit. All the information will go to the backend. 
+  const[Images, setImages] = useState([])
 
   const onTitleChange = (e) => { 
     setTitleValue(e.currentTarget.value)
@@ -38,6 +40,10 @@ function UploadProductPage() {
     setContinentValue(e.currentTarget.value)
   }
 
+  const updateImages = (newImages) => { 
+    setImages(newImages)
+  }
+
 
   return (
     <div style = {{ maxWidth: '700px', margin: '2rem auto' }} >
@@ -48,7 +54,7 @@ function UploadProductPage() {
     <Form onSubmit > 
 
       { /* DropZone */ }
-      < FileUpload />
+      < FileUpload refreshFunction={updateImages} />
 
       <br /> <br />
 
