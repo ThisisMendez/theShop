@@ -53,7 +53,7 @@ function UploadProductPage() {
         <Title level={2}>UploadProductPage</Title>
     </div>
     
-    <Form onSubmit > 
+    <Form  > 
 
       { /* DropZone */ }
       <FileUpload refreshFunction={updateImages}/>

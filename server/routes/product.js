@@ -23,10 +23,7 @@ var storage = multer.diskStorage({
     }
 })
 
-var upload = multer({storage: storage }).single("file")
-
-
-
+var upload = multer({ storage: storage }).single("file")
 
 
 
@@ -37,14 +34,12 @@ var upload = multer({storage: storage }).single("file")
 router.post("/uploadImage", auth, (req, res) => {
     
     //after getting that image from client 
-    // we need to save it inside the multer lib 
+    // we need to save it inside Node Server
 
     //Multer library
 
     upload(req, res, err => {
-        if (err) {
-            return res.json({ success: false, err })
-        }
+        if (err) return res.json({ success: false, err })
         return res.json({ success: true, image: res.req.file.path, fileName: res.req.file.filename })
     })
 
