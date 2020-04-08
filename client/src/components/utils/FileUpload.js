@@ -52,7 +52,7 @@ function FileUpload(props) {
 
         <div style={{ display: 'flex', width: '350px', height:'240px', overflowX:'scroll' }}>
 
-          <div onClick>
+          <div >
             <img />
           </div>
 
