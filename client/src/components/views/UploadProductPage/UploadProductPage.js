@@ -41,6 +41,8 @@ function UploadProductPage() {
   }
 
   const updateImages = (newImages) => { 
+    
+    console.log(newImages)
     setImages(newImages)
   }
 
@@ -54,7 +56,7 @@ function UploadProductPage() {
     <Form onSubmit > 
 
       { /* DropZone */ }
-      < FileUpload refreshFunction={updateImages} />
+      <FileUpload refreshFunction={updateImages}/>
 
       <br /> <br />
 
@@ -81,8 +83,9 @@ function UploadProductPage() {
         type="number"
       />
 
-      <select 
-        onChange={onContinentsSelectChange}>
+      <br /><br />
+
+      <select onChange={onContinentsSelectChange}>
         {Continents.map(item=> (
           <option key ={item.key} value={item.key}>{item.value} </option>
         ))}
@@ -91,7 +94,7 @@ function UploadProductPage() {
       <br /> <br />
 
       <Button
-        onClick
+        // onClick
       >
         Submit
       </Button>
