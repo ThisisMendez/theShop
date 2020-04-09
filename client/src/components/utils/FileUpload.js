@@ -13,12 +13,11 @@ function FileUpload(props) {
       header: { 'content-type': 'multipart/form-data'}
     }
     formData.append("file", files[0])
-    
     //save the Image we chose inside the Node Server 
     Axios.post('/api/product/uploadImage', formData, config)
       .then(response => { 
         if(response.data.success) { 
-            //to create this you need to create a state: Line 8. The brackets support multiple images 
+            //create a state: Line 8. The brackets support multiple images 
             setImages([...Images, response.data.image])
             props.refreshFunction([...Images, response.data.image])
 
@@ -26,7 +25,16 @@ function FileUpload(props) {
           alert('Failed to save the Image in Server')
         }
     })
+  }
 
+  const onDelete = (image) => { 
+    const currentIndex = Images.indexOf(image);
+
+    let newImages = [...Images]
+    newImages.splice(currentIndex, 1)
+
+    setImages(newImages)
+    props.refreshFunction(newImages)
   }
 
 
@@ -52,12 +60,15 @@ function FileUpload(props) {
 
         <div style={{ display: 'flex', width: '350px', height:'240px', overflowX:'scroll' }}>
 
-          <div >
-            <img />
-          </div>
-
+          {Images.map((image, index) => (
+            <div onClick={() => onDelete(image)}>
+              <img style= {{ minWidth: '300px', width: '300px', height:'240px' }}
+                src={`http://localhost:5000/${image}`}
+                alt={`productImg-${index}`} />
+            </div>
+          ))}
+            
         </div>
-
     </div>
   )
 }
