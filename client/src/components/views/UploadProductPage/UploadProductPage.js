@@ -50,6 +50,10 @@ function UploadProductPage(props) {
   const onSubmit = (e) => { 
     e.preventDefault(); 
 
+    if(!TitleValue || !DescriptionValue || !PriceValue || !ContinentValue || !Images ) { 
+      return alert('Fill all the fields first!')
+    }
+
     const variables = { 
       writer: props.user.userData._id, // Can come from the redux information, added props into the uploadpage function
       title: TitleValue, //values are pulled from this page 
