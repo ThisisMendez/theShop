@@ -65,17 +65,16 @@ router.post("/getProducts", auth, (req, res) => {
     let skip = parseInt(req.body.skip); 
 
     let findArgs = {}; 
-
-    console.log(req.body.filters)
     
     for(let key in req.body.filters) { 
-        console.log(key)
         
         if(req.body.filters[key].length > 0) {
             if(key === "price" ) { 
 
             } else { 
-                findArgs[key] = req.body.filters[key]; 
+                findArgs[key] = req.body.filters[key];
+                console.log(findArgs) 
+                
             }
         }
     }

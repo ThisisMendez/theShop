@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import {Checkbox, Collapse} from 'antd';
+import { Checkbox, Collapse } from 'antd';
 
-const { Panel } = Collapse; 
+const { Panel } = Collapse
 
 const Continents = [
   {"_id":1, "name": "Africa"}, 
@@ -49,7 +49,7 @@ const renderCheckboxLists = () => Continents.map((value, index) => (
   return (
     <div>
       <Collapse defaultActiveKey={['0']} >
-        <Panel header key="1">
+        <Panel header ="Continents" key="1">
           {renderCheckboxLists()}
         </Panel>
       </Collapse>
