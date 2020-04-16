@@ -85,9 +85,7 @@ const handleFilters = (filters, category) => {
         
 
 
-
                 {/* Search */}
-
 
 
 
