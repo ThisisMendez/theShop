@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Axios from 'axios';
 import { Icon, Col, Card, Row }from 'antd';
 import ImageSlider from '../../utils/ImageSlider';
+import Checkbox from './Sections/CheckBox';
 
 const { Meta } = Card; 
 
@@ -49,7 +50,6 @@ const onLoadMore = () => {
     setSkip(skip) //this skip is different than the skip in the other method 
 } 
 
-
 const renderCards = Products.map((product, index) =>{ 
     return <Col lg={6} md={8} xs={24}> 
         <Card 
@@ -64,14 +64,32 @@ const renderCards = Products.map((product, index) =>{
         </Card> 
     </Col>
 })
+
+const handleFilters = (filters, category) => { 
+
+}
+
+
         return (
             <div style={{ width: '75%', margin: '3rem auto' }}> 
                 <div style={{ textAlign: 'center' }}> 
                     <h2> Let's Travel Anywhere <Icon type="rocket" /> </h2>
                 </div>
 
+
+
                 {/* FIlter */}
+                <Checkbox 
+                    handleFilters= { filters => handleFilters(filters, "continents")}
+                /> 
+        
+
+
+
                 {/* Search */}
+
+
+
 
                 {Products.length === 0 ? 
                 <div style={{ display: 'flex', height: '300px', justifyContent: 'center', alignItems: 'center'}}>
