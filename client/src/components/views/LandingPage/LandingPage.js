@@ -20,13 +20,12 @@ function LandingPage() {
     })
     
     useEffect(() => { 
-
             const variables = { 
                 skip: Skip, 
                 limit: Limit, 
-        }
+            }
         getProducts(variables)
-    })
+    }, [])
 
     const getProducts = (variables) => {
         Axios.post('/api/product/getProducts', variables)
