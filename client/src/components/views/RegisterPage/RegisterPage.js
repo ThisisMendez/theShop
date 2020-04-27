@@ -88,13 +88,11 @@ function RegisterPage(props) {
         const {
           values,
           touched,
-          errors,
-          dirty,
+          errors,          
           isSubmitting,
           handleChange,
           handleBlur,
           handleSubmit,
-          handleReset,
         } = props;
         return (
           <div className="app">
