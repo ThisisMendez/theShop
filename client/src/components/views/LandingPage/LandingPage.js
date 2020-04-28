@@ -10,7 +10,7 @@ function LandingPage() {
 
     const [Products, setProducts] = useState([])
     const [Skip, setSkip] = useState(0)
-    const [Limit, setLimit] = useState(8)
+    const [Limit] = useState(8)
     const [PostSize, setPostSize] = useState()
     
     useEffect(() => { 
@@ -19,7 +19,7 @@ function LandingPage() {
                 limit: Limit, 
         }
         getProducts(variables)
-    }, [])
+    })
 
  const getProducts = (variables) => { 
     Axios.post('/api/product/getProducts', variables)
